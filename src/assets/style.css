@@ -1,0 +1,17 @@
+:root {
+  /* Warna untuk Men Section */
+  --men-primary: #002772;
+  --men-bg: #d6e6ff;
+
+  /* Warna untuk Women Section */
+  --women-primary: #720060;
+  --women-bg: #fde2ff;
+
+  /* Warna untuk Unavailable Section */
+  --unavailable-primary: #3f3f3f;
+  --unavailable-bg: #dcdcdc;
+
+  /* Warna umum */
+  --white: #ffffff;
+  --dark: #1e1e1e;
+}

@@ -33,3 +33,31 @@ body {
   justify-content: center;
   transition: background-color 0.5s ease;
 }
+.men-section {
+  background: var(--men-bg);
+}
+
+.men-section .btn-buy {
+  background: var(--men-primary);
+  color: white;
+}
+
+.men-section .btn-next {
+  border: 2px solid var(--men-primary);
+  color: var(--men-primary);
+}
+
+.women-section {
+  background: var(--women-bg);
+}
+.women-section .btn-buy {
+  background: var(--women-primary);
+  color: white;
+}
+.women-section .btn-next {
+  border: 2px solid var(--women-primary);
+  color: var(--women-primary);
+}
+.unavailable-section {
+  background: var(--unavailable-primary);
+}

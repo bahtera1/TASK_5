@@ -1,4 +1,20 @@
-<script></script>
+<script>
+export default {
+  name: "ProductDisplay",
+
+  props: {
+    product: {
+      type: Object,
+      default: null,
+    },
+  },
+  methods: {
+    onNext() {
+      this.$emit("next");
+    },
+  },
+};
+</script>
 <template>
   <div>
     <!-- CARD PRODUK — tampil jika product ada -->

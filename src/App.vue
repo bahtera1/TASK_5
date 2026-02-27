@@ -1,17 +1,16 @@
 <template>
   <div id="app">
-    <h1>Test</h1>
+    <ProductDisplay />
   </div>
 </template>
 
 <script>
+import ProductDisplay from "./components/ProductDisplay.vue";
+
 export default {
   name: "App",
+  components: {
+    ProductDisplay,
+  },
 };
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-}
-</style>

@@ -54,15 +54,15 @@ export default {
       </div>
     </div>
 
-    <div v-else class="unavailable-container">
-      <div class="sad-face">
-        <div class="face">
-          <div class="eyes">
-            <span class="eye"></span>
-            <span class="eye"></span>
-          </div>
-          <div class="mouth"></div>
-        </div>
+    <div v-else class="unavailable-card">
+      <div class="unavailable-face">
+        <svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
+          <path d="M50 30 Q65 15 80 35" stroke="#1e1e1e" stroke-width="4" fill="none" stroke-linecap="round"/>
+          <path d="M120 30 Q135 15 150 35" stroke="#1e1e1e" stroke-width="4" fill="none" stroke-linecap="round"/>
+          <path d="M55 55 Q65 70 75 55" stroke="#1e1e1e" stroke-width="4" fill="none" stroke-linecap="round"/>
+          <path d="M125 55 Q135 70 145 55" stroke="#1e1e1e" stroke-width="4" fill="none" stroke-linecap="round"/>
+          <path d="M40 120 Q100 80 160 120" stroke="#1e1e1e" stroke-width="5" fill="none" stroke-linecap="round"/>
+        </svg>
       </div>
       <p class="unavailable-text">This product is unavailable to show</p>
       <button class="btn-next-unavailable" @click="onNext">Next product</button>
@@ -214,75 +214,48 @@ export default {
   transform: translateY(-2px);
 }
 
-.unavailable-container {
+.unavailable-card {
+  background: var(--white);
+  border-radius: 12px;
+  max-width: 900px;
+  width: 90vw;
+  min-height: 400px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 80vh;
-  color: var(--white);
+  padding: 40px;
   text-align: center;
-  padding: 20px;
 }
 
-.sad-face {
-  margin-bottom: 30px;
-}
-
-.face {
-  width: 150px;
-  height: 150px;
-  border: 4px solid rgba(255, 255, 255, 0.3);
-  border-radius: 50%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.eyes {
-  display: flex;
-  gap: 30px;
-  margin-bottom: 15px;
-}
-
-.eye {
-  width: 18px;
-  height: 18px;
-  background: rgba(255, 255, 255, 0.5);
-  border-radius: 50%;
-}
-
-.mouth {
-  width: 50px;
-  height: 25px;
-  border: 3px solid rgba(255, 255, 255, 0.5);
-  border-radius: 0 0 50px 50px;
-  border-top: none;
-  transform: rotate(180deg);
+.unavailable-face svg {
+  width: 200px;
+  height: 160px;
+  margin-bottom: 20px;
 }
 
 .unavailable-text {
-  font-size: 1.3rem;
-  font-weight: 500;
-  margin-bottom: 30px;
-  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--dark);
+  margin-bottom: 20px;
 }
 
 .btn-next-unavailable {
-  padding: 12px 36px;
+  padding: 12px 50px;
   background: transparent;
-  color: var(--white);
-  border: 2px solid var(--white);
-  border-radius: 8px;
-  font-size: 1rem;
-  font-weight: 600;
+  color: var(--dark);
+  border: 2px solid var(--dark);
+  border-radius: 4px;
+  font-size: 0.95rem;
+  font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .btn-next-unavailable:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.05);
   transform: translateY(-2px);
 }
 

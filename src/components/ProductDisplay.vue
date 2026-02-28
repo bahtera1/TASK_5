@@ -249,4 +249,17 @@ export default {
   background: rgba(255, 255, 255, 0.1);
   transform: translateY(-2px);
 }
+@media (max-width: 768px) {
+  .product-card {
+    flex-direction: column;
+  }
+  .product-image img {
+    max-height: 250px;
+  }
+}
+.product-card:hover {
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.25);
+  transform: translateY(-5px);
+  transition: all 0.3s ease;
+}
 </style>

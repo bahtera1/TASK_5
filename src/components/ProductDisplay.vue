@@ -15,30 +15,36 @@ export default {
   },
 };
 </script>
+
 <template>
   <div>
-    <!-- CARD PRODUK — tampil jika product ada -->
     <div v-if="product" class="product-card">
-      <!-- Gambar (kiri) -->
       <div class="product-image">
         <img :src="product.image" :alt="product.title" />
       </div>
 
-      <!-- Detail (kanan) -->
       <div class="product-details">
         <h1 class="product-title">{{ product.title }}</h1>
+
+        <div class="divider"></div>
 
         <div class="product-meta">
           <span class="product-category">{{ product.category }}</span>
           <div class="product-rating">
-            <span v-for="star in 5" :key="star" class="star">
-              {{ star <= Math.round(product.rating.rate) ? "★" : "☆" }}
-            </span>
-            <span class="rating-count">({{ product.rating.count }})</span>
+            <span class="rating-number">{{ product.rating.rate }}/5</span>
+            <span
+              v-for="dot in 5"
+              :key="dot"
+              class="dot"
+              :class="dot <= Math.round(product.rating.rate) ? 'filled' : 'empty'"
+            ></span>
           </div>
         </div>
 
         <p class="product-description">{{ product.description }}</p>
+
+        <div class="divider"></div>
+
         <h2 class="product-price">${{ product.price.toFixed(2) }}</h2>
 
         <div class="product-actions">
@@ -48,7 +54,6 @@ export default {
       </div>
     </div>
 
-    <!-- UNAVAILABLE — tampil jika product = null -->
     <div v-else class="unavailable-container">
       <div class="sad-face">
         <div class="face">
@@ -75,6 +80,12 @@ export default {
   width: 90%;
   min-height: 400px;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.product-card:hover {
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.25);
+  transform: translateY(-5px);
 }
 
 .product-image {
@@ -107,11 +118,18 @@ export default {
   margin: 0 0 12px 0;
 }
 
+.divider {
+  width: 100%;
+  height: 1px;
+  background: #e0e0e0;
+  margin: 8px 0;
+}
+
 .product-meta {
   display: flex;
   align-items: center;
-  gap: 15px;
-  margin-bottom: 15px;
+  justify-content: space-between;
+  margin: 10px 0 15px 0;
 }
 
 .product-category {
@@ -120,22 +138,39 @@ export default {
   text-transform: capitalize;
 }
 
-.product-rating .star {
-  color: #f5a623;
-  font-size: 1rem;
+.product-rating {
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
 
-.rating-count {
-  font-size: 0.8rem;
-  color: #999;
-  margin-left: 4px;
+.rating-number {
+  font-size: 0.85rem;
+  color: #666;
+  margin-right: 4px;
+}
+
+.dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dot.filled {
+  background: var(--dark);
+}
+
+.dot.empty {
+  background: transparent;
+  border: 2px solid #ccc;
 }
 
 .product-description {
   font-size: 0.9rem;
   color: #555;
   line-height: 1.6;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   display: -webkit-box;
   -webkit-line-clamp: 5;
   -webkit-box-orient: vertical;
@@ -146,7 +181,7 @@ export default {
   font-size: 1.8rem;
   font-weight: 700;
   color: var(--dark);
-  margin: 0 0 20px 0;
+  margin: 10px 0 20px 0;
 }
 
 .product-actions {
@@ -156,6 +191,7 @@ export default {
 
 .btn-buy,
 .btn-next {
+  flex: 1;
   padding: 12px 28px;
   border-radius: 8px;
   font-size: 0.95rem;
@@ -249,6 +285,7 @@ export default {
   background: rgba(255, 255, 255, 0.1);
   transform: translateY(-2px);
 }
+
 @media (max-width: 768px) {
   .product-card {
     flex-direction: column;
@@ -256,10 +293,5 @@ export default {
   .product-image img {
     max-height: 250px;
   }
-}
-.product-card:hover {
-  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.25);
-  transform: translateY(-5px);
-  transition: all 0.3s ease;
 }
 </style>

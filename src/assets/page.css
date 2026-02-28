@@ -32,9 +32,20 @@ body {
   align-items: center;
   justify-content: center;
   transition: background-color 0.5s ease;
+  position: relative;
 }
 .men-section {
-  background: var(--men-bg);
+  background-color: var(--men-bg);
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23002772' fill-opacity='0.06'%3E%3Crect x='10' y='10' width='8' height='8' rx='1'/%3E%3Ccircle cx='45' cy='15' r='4'/%3E%3Crect x='35' y='40' width='6' height='6' rx='1' transform='rotate(45 38 43)'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.men-section .product-title,
+.men-section .product-price {
+  color: var(--men-primary);
+}
+
+.men-section .dot.filled {
+  background: var(--men-primary);
 }
 
 .men-section .btn-buy {
@@ -48,16 +59,29 @@ body {
 }
 
 .women-section {
-  background: var(--women-bg);
+  background-color: var(--women-bg);
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23720060' fill-opacity='0.06'%3E%3Crect x='10' y='10' width='8' height='8' rx='1'/%3E%3Ccircle cx='45' cy='15' r='4'/%3E%3Crect x='35' y='40' width='6' height='6' rx='1' transform='rotate(45 38 43)'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
+
+.women-section .product-title,
+.women-section .product-price {
+  color: var(--women-primary);
+}
+
+.women-section .dot.filled {
+  background: var(--women-primary);
+}
+
 .women-section .btn-buy {
   background: var(--women-primary);
   color: white;
 }
+
 .women-section .btn-next {
   border: 2px solid var(--women-primary);
   color: var(--women-primary);
 }
+
 .unavailable-section {
   background: var(--unavailable-primary);
 }
@@ -123,7 +147,7 @@ body {
 
 .skeleton-btn {
   height: 44px;
-  width: 120px;
+  flex: 1;
   border-radius: 8px;
 }
 

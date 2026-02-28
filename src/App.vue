@@ -15,7 +15,6 @@
         </div>
       </div>
     </div>
-    <!-- ProductDisplay -->
     <ProductDisplay v-else :product="product" @next="nextProduct" />
   </div>
 </template>

@@ -20,13 +20,11 @@ export default {
   <div>
     <div v-if="product" class="product-card">
       <div class="product-image">
-        <img :src="product.image" :alt="product.title" />
+        <img :src="product.image" :alt="product.title" loading="lazy" />
       </div>
 
       <div class="product-details">
         <h1 class="product-title">{{ product.title }}</h1>
-
-        <div class="divider"></div>
 
         <div class="product-meta">
           <span class="product-category">{{ product.category }}</span>
@@ -40,6 +38,8 @@ export default {
             ></span>
           </div>
         </div>
+
+        <div class="divider"></div>
 
         <p class="product-description">{{ product.description }}</p>
 
@@ -89,7 +89,7 @@ export default {
 }
 
 .product-image {
-  flex: 1;
+  flex: 2;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -104,7 +104,7 @@ export default {
 }
 
 .product-details {
-  flex: 1;
+  flex: 3;
   padding: 30px;
   display: flex;
   flex-direction: column;
